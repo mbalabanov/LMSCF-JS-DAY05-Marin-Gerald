@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Basic 01</title>
+	<style type="text/css" media="screen">
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<h1>JSON Text Output</h1>
+	<p>The data from the following text comes from a JSON object:</p>
+	<p id="output"></p>
+
+	<script>
+		let sandwiches = {
+			"sandwich": "hamburger",
+			"calories": "260"
+		};
+
+		let fries = {
+			"fries_size": "Large French Fries",
+			"calories": "570"
+		};
+
+		document.getElementById('output').innerHTML = `<strong>My favorite sanwich is a ${sandwiches.sandwich} which has approximately ${sandwiches.calories} calories, along with it I enjoy eating ${fries.fries_size} wich have about ${fries.calories}.</strong>`;
+	</script>
+
+</body>
+</html>
