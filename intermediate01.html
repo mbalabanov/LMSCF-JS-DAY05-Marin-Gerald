@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Employee Table</title>
+	<style type="text/css" media="screen">
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td, th {
+			border: 1px solid gray;
+			text-align: left;
+			padding: 1rem;
+		}
+		tr:nth-child(even) {
+			background-color: lightblue;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="container">
+		<h1>Employees Table</h1>		
+		<table id="employeeTable">
+
+		</table>
+	</div>
+
+
+	<script>
+		let employeesList = {
+
+		   "employees": [{
+
+		       "unique_id": "01",
+
+		       "first_name": "Horst",
+
+		       "last_name": "Schmidt",
+
+		       "email": "horst.schmidt@test.com",
+
+		       "job_title": "Project Manager",
+
+		       "salary": "1234"
+
+		   }, {
+
+		       "unique_id": "02",
+
+		       "first_name": "Manuela",
+
+		       "last_name": "Muster",
+
+		       "email": "manuela.muster@test.com",
+
+		       "job_title": "Graphics Designer",
+
+		       "salary": "12345"
+
+		   }, {
+
+		       "unique_id": "03",
+
+		       "first_name": "Susanne",
+
+		       "last_name": "Unterwurzacher",
+
+		       "email": "susanne.unterwurzacher@test.com",
+
+		       "job_title": "Administrative Assistang",
+
+		       "salary": "123456"
+
+		   }, {
+
+		       "unique_id": "04",
+
+		       "first_name": "Martin",
+
+		       "last_name": "Meyer",
+
+		       "email": "martin.meyer@test.com",
+
+		       "job_title": "Janitor",
+
+		       "salary": "1234567"
+
+		   }, {
+
+		       "unique_id": "05",
+
+		       "first_name": "Otto",
+
+		       "last_name": "Meyer",
+
+		       "email": "otto.rabenhorst@test.com",
+
+		       "job_title": "Analyst",
+
+		       "salary": "12345678"
+
+		   }, {
+
+		       "unique_id": "06",
+
+		       "first_name": "Steffen",
+
+		       "last_name": "Tasche",
+
+		       "email": "steffen.tasche@test.com",
+
+		       "job_title": "Junior Developer",
+
+		       "salary": "123456789"
+
+		   }, {
+
+		       "unique_id": "07",
+
+		       "first_name": "Gina",
+
+		       "last_name": "Blanke",
+
+		       "email": "gina.blanke@test.com",
+
+		       "job_title": "Sales Manager",
+
+		       "salary": "1234567890"
+
+		   }, {
+
+		       "unique_id": "08",
+
+		       "first_name": "Nora",
+
+		       "last_name": "Frank",
+
+		       "email": "nora.frank@test.com",
+
+		       "job_title": "Security",
+
+		       "salary": "12345678901"
+
+		   }, {
+
+		       "unique_id": "09",
+
+		       "first_name": "Bernhard",
+
+		       "last_name": "Loibl",
+
+		       "email": "bernhard.loibl@test.com",
+
+		       "job_title": "Receptionist",
+
+		       "salary": "123456789012"
+
+		   }, {
+
+		       "unique_id": "10",
+
+		       "first_name": "Lotte",
+
+		       "last_name": "Eichinger",
+
+		       "email": "lotte.eichinger@test.com",
+
+		       "job_title": "Translator",
+
+		       "salary": "123456789012"
+
+		   }, {
+
+		       "unique_id": "11",
+
+		       "first_name": "Amelie",
+
+		       "last_name": "Martiny",
+
+		       "email": "amelie.martiny@test.com",
+
+		       "job_title": "Front Office Manager",
+
+		       "salary": "1234567890123"
+
+		   }, {
+
+		       "unique_id": "12",
+
+		       "first_name": "Ellen",
+
+		       "last_name": "Cichon",
+
+		       "email": "ellen.cichon@test.com",
+
+		       "job_title": "Copy Writer",
+
+		       "salary": "12345678901234"
+
+		   }, {
+
+		       "unique_id": "13",
+
+		       "first_name": "Bettina",
+
+		       "last_name": "Langenbach",
+
+		       "email": "bettina.langenbach@test.com",
+
+		       "job_title": "Event Manager",
+
+		       "salary": "123456789012345"
+
+		   }, {
+
+		       "unique_id": "14",
+
+		       "first_name": "Eugen",
+
+		       "last_name": "Mersch",
+
+		       "email": "eugen.mersch@test.com",
+
+		       "job_title": "Hygene Manager",
+
+		       "salary": "1234567890123456"
+
+		   }, {
+
+		       "unique_id": "15",
+
+		       "first_name": "Manuel",
+
+		       "last_name": "Rusch",
+
+		       "email": "manuel.rusch@test.com",
+
+		       "job_title": "Intern",
+
+		       "salary": "12345678901234567"
+
+		   }]
+
+		}
+
+		let generatedTable = '<tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Job Title</th><th>Salary</th></tr>';
+
+		for (let i in employeesList.employees) {
+			generatedTable += `
+			<tr><td>${employeesList.employees[i].unique_id}</td><td>${employeesList.employees[i].first_name}</td><td>${employeesList.employees[i].last_name}</td><td>${employeesList.employees[i].email}</td><td>${employeesList.employees[i].job_title}</td><td>${employeesList.employees[i].salary}</td></tr>
+			`;
+		}
+
+		document.getElementById('employeeTable').innerHTML = generatedTable;
+
+	</script>
+</body>
+</html>
