@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Car Shop - Challenge</title>
+
+	<style type="text/css" media="screen">
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: lightskyblue;
+		}
+		h1 {
+			text-align: center;
+		}
+		#container {
+			background-color: white;
+			margin: 0 auto;
+			width: 50rem;
+			border-radius: 0.4rem;
+		}
+		header {
+			background-color: gray;
+			color: white;
+			display: flex;
+			width: 100%;
+			padding: 1rem;
+			border-top-left-radius: 0.4rem;
+			border-top-right-radius: 0.4rem;
+			box-sizing: border-box;
+		}
+		.titleArea {
+			width: 12rem;
+			padding: 1rem;
+		}
+		.bannerArea {
+			width: 30rem;
+			margin: 2rem;
+		}
+		.bannerArea img {
+			width: 100%;
+		}
+		nav {
+			background-color: lightgray;
+			width: 100%;
+			padding: 0.4rem;
+			box-sizing: border-box;
+		}
+		nav ul {
+			list-style: none;
+		}
+		nav ul li {
+			display: inline;
+		}
+		nav a {
+			text-decoration: none;
+			color: white;
+			font-weight: bold;
+		}
+		#output {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.car {
+			width: 12.8em;
+			margin: 1rem;
+			padding: 0.4rem;
+			background-color: white;
+		}
+		.car img {
+			border-radius: 1rem;
+			width: 100%;
+		}
+		.car p {
+			text-align: center;
+		}
+		.wide {
+			width: 100%;
+		}
+		.infobutton {
+			padding: 0.8rem;
+			background-color: darkblue;
+			color: white;
+			border-radius: 0.4rem;
+			border: none;
+		}
+		.closebutton {
+			padding: 0.8rem;
+			background-color: darkred;
+			color: white;
+			border-radius: 0.4rem;
+			border: none;
+		}
+		.hidden {
+			display: none;
+		}
+		footer {
+			background-color: gray;
+			border-bottom-left-radius: 0.4rem;
+			border-bottom-right-radius: 0.4rem;
+			padding: 1rem;
+			text-align: center;
+			color: white;
+			font-weight: bold;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div class="titleArea">
+				<h1>Car shop logo</h1>
+			</div>
+			<div class="bannerArea">
+				<img src="img/banner.png" alt="Ad Banner">
+			</div>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="#" title="NavLink">Navigation</a></li>
+			</ul>
+		</nav>
+		<main id="mainContent">
+			<h1>Car Shop</h1>
+			<div id="output"></div>
+		</main>
+		<footer>
+			<p>Car shop - 2019</p>
+		</footer>
+	</div>
+
+	<script>
+		
+		let carList = {
+
+		   "automobiles": [{
+
+		       "unique_id": "01",
+
+		       "manufacturer": "Opel",
+
+		       "name": "Blend",
+
+		       "production_year": "1984",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car01.jpg"
+
+		   }, {
+
+		       "unique_id": "02",
+
+		       "manufacturer": "Audi",
+
+		       "name": "Vagabond",
+
+		       "production_year": "2001",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car02.jpg"
+
+		   }, {
+
+		       "unique_id": "03",
+
+		       "manufacturer": "Volkswagen",
+
+		       "name": "Meridian",
+
+		       "production_year": "20012",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car03.jpg"
+
+		   }, {
+
+		       "unique_id": "04",
+
+		       "manufacturer": "Toyota",
+
+		       "name": "Curiosity",
+
+		       "production_year": "1998",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car04.jpg"
+
+		   }, {
+
+		       "unique_id": "05",
+
+		       "manufacturer": "Opel",
+
+		       "name": "Instinct",
+
+		       "production_year": "2018",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car05.jpg"
+
+		   }, {
+
+		       "unique_id": "06",
+
+		       "manufacturer": "Audi",
+
+		       "name": "Parallel",
+
+		       "production_year": "2008",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car06.jpg"
+
+		   }, {
+
+		       "unique_id": "07",
+
+		       "manufacturer": "Mercedes",
+
+		       "name": "Vulture",
+
+		       "production_year": "2014",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car07.jpg"
+
+		   }, {
+
+		       "unique_id": "08",
+
+		       "manufacturer": "Volkswagen",
+
+		       "name": "Chase",
+
+		       "production_year": "2015",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car08.jpg"
+
+		   }, {
+
+		       "unique_id": "09",
+
+		       "manufacturer": "BMW",
+
+		       "name": "Vindicator",
+
+		       "production_year": "2013",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car09.jpg"
+
+		   }, {
+
+		       "unique_id": "10",
+
+		       "manufacturer": "Audi",
+
+		       "name": "Essence",
+
+		       "production_year": "2019",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car10.jpg"
+
+		   }, {
+
+		       "unique_id": "11",
+
+		       "manufacturer": "Opel",
+
+		       "name": "Blitz",
+
+		       "production_year": "2004",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car11.jpg"
+
+		   }, {
+
+		       "unique_id": "12",
+
+		       "manufacturer": "Toyota",
+
+		       "name": "Crusader",
+
+		       "production_year": "1993",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car12.jpg"
+
+		   }, {
+
+		       "unique_id": "13",
+
+		       "manufacturer": "Volkswagen",
+
+		       "name": "Quicksilver",
+
+		       "production_year": "2017",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car13.jpg"
+
+		   }, {
+
+		       "unique_id": "14",
+
+		       "manufacturer": "BMW",
+
+		       "name": "Rune",
+
+		       "production_year": "2007",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car14.jpg"
+
+		   }, {
+
+		       "unique_id": "15",
+
+		       "manufacturer": "Toyota",
+
+		       "name": "Momentum",
+
+		       "production_year": "2011",
+
+		       "price": "1234567",
+
+		       "image_url": "img/car15.jpg"
+
+		   }]
+
+		}
+
+
+		let generatedContent = '';
+
+		for (let i in carList.automobiles) {
+			generatedContent += `
+			<div class="car" id="car${carList.automobiles[i].unique_id}">
+				<img src="${carList.automobiles[i].image_url}" alt="Car Image">
+				<div class="infoFlex">
+					<p><strong>${carList.automobiles[i].manufacturer} ${carList.automobiles[i].name}</strong><br>
+					${carList.automobiles[i].production_year}, € ${carList.automobiles[i].price}.00</p>
+					<p><button type="button" class="infobutton" id="button${carList.automobiles[i].unique_id}">More Information</button>&nbsp;<button type="button" class="closebutton hidden" id="closebutton${carList.automobiles[i].unique_id}">Close</button></p>
+				</div>
+			</div>
+			`;
+		}
+
+		document.getElementById('output').innerHTML = generatedContent;
+
+		let allButtons = document.getElementsByClassName('infobutton');
+		let allCloseButtons = document.getElementsByClassName('closebutton');
+		let allCars = document.getElementsByClassName('car');
+
+		for (let i in allButtons) {
+			if (allButtons[i].id !== undefined) {
+				document.getElementById(allButtons[i].id).addEventListener('click', function() {
+
+					for (let j in allCars) {
+						if (allCars[j].id !== undefined) {
+							document.getElementById('car'+carList.automobiles[j].unique_id).classList.remove('wide');
+						}
+					}
+
+					document.getElementById('car'+carList.automobiles[i].unique_id).classList.add('wide');
+					document.getElementById('closebutton'+carList.automobiles[i].unique_id).classList.remove('hidden');
+				})
+			}
+		}
+
+		for (let i in allCloseButtons) {
+			if (allCloseButtons[i].id !== undefined) {
+				document.getElementById(allCloseButtons[i].id).addEventListener('click', function() {
+					document.getElementById('car'+carList.automobiles[i].unique_id).classList.remove('wide');
+					document.getElementById('closebutton'+carList.automobiles[i].unique_id).classList.add('hidden');
+				})
+			}
+		}
+
+	</script>
+</body>
+</html>
