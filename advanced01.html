@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Book List - Advanced</title>
+
+	<style type="text/css" media="screen">
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: lightslategray;
+		}
+		h1 {
+			text-align: center;
+		}
+		#container {
+			background-color: white;
+			margin: 0 auto;
+			width: 57rem;
+			border-radius: 0.4rem;
+			padding: 2rem;
+		}
+		#output {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.book {
+			width: 16rem;
+			margin: 1rem;
+			padding: 0.4rem;
+		}
+		.book img {
+			width: 100%;
+		}
+		.book p {
+			text-align: center;
+		}
+		.true {
+			background-color: green;
+			color: white;
+			margin: 0.4rem;
+			padding: 0.4rem;
+			border-radius: 0.4rem;
+		}
+		.false {
+			background-color: red;
+			color: white;
+			margin: 0.4rem;
+			padding: 0.4rem;
+			border-radius: 0.4rem;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<div id="container">
+		<h1>Book List</h1>
+		<div id="output"></div>
+	</div>
+
+	<script>
+		
+		let bookList = {
+
+		   "novels": [{
+
+		       "unique_id": "01",
+
+		       "title": "Defender Of Tomorrow",
+
+		       "author": "Damian Rose",
+
+		       "read": "false",
+
+		       "image_url": "img/01.jpg"
+
+		   }, {
+
+		       "unique_id": "02",
+
+		       "title": "Sage Of The Sea",
+
+		       "author": "Lucrecia Howard",
+
+		       "read": "false",
+
+		       "image_url": "img/02.jpg"
+
+		   }, {
+
+		       "unique_id": "03",
+
+		       "title": "Snakes Of My Imagination",
+
+		       "author": "Rudy Chambers",
+
+		       "read": "true",
+
+		       "image_url": "img/03.jpg"
+
+		   }, {
+
+		       "unique_id": "04",
+
+		       "title": "Enemies Without A Home",
+
+		       "author": "Laura Booth",
+
+		       "read": "true",
+
+		       "image_url": "img/04.jpg"
+
+		   }, {
+
+		       "unique_id": "05",
+
+		       "title": "Wives And Officers",
+
+		       "author": "Jimmy Hussain",
+
+		       "read": "false",
+
+		       "image_url": "img/05.jpg"
+
+		   }, {
+
+		       "unique_id": "06",
+
+		       "title": "Guardians And Soldiers",
+
+		       "author": "James Willis",
+
+		       "read": "true",
+
+		       "image_url": "img/06.jpg"
+
+		   }, {
+
+		       "unique_id": "07",
+
+		       "title": "Faith Without Time",
+
+		       "author": "Susan Moore",
+
+		       "read": "false",
+
+		       "image_url": "img/07.jpg"
+
+		   }, {
+
+		       "unique_id": "08",
+
+		       "title": "End Without A Goal",
+
+		       "author": "Ddeborah John",
+
+		       "read": "true",
+
+		       "image_url": "img/08.jpg"
+
+		   }, {
+
+		       "unique_id": "09",
+
+		       "title": "Faith Of The Castle",
+
+		       "author": "Aidan Woods",
+
+		       "read": "true",
+
+		       "image_url": "img/09.jpg"
+
+		   }, {
+
+		       "unique_id": "10",
+
+		       "title": "Horse Of The Ancestors",
+
+		       "author": "Tracy Robinson",
+
+		       "read": "true",
+
+		       "image_url": "img/10.jpg"
+
+		   }, {
+
+		       "unique_id": "11",
+
+		       "title": "Phantoms Of Utopia",
+
+		       "author": "Elijah Day",
+
+		       "read": "false",
+
+		       "image_url": "img/11.jpg"
+
+		   }, {
+
+		       "unique_id": "12",
+
+		       "title": "Assassins Of Hell",
+
+		       "author": "Jennifer Riley",
+
+		       "read": "true",
+
+		       "image_url": "img/12.jpg"
+
+		   }, {
+
+		       "unique_id": "13",
+
+		       "title": "Fate Of Twilight",
+
+		       "author": "Kate Clarke",
+
+		       "read": "true",
+
+		       "image_url": "img/13.jpg"
+
+		   }, {
+
+		       "unique_id": "14",
+
+		       "title": "Honor Of Earth",
+
+		       "author": "Julianne Keith",
+
+		       "read": "false",
+
+		       "image_url": "img/14.jpg"
+
+		   }, {
+
+		       "unique_id": "15",
+
+		       "title": "Pleasing The World",
+
+		       "author": "Frederick Miller",
+
+		       "read": "false",
+
+		       "image_url": "img/15.jpg"
+
+		   }]
+
+		}
+
+
+		let generatedList = '';
+
+		for (let i in bookList.novels) {
+			generatedList += `
+			<div class="book">
+				<img src="${bookList.novels[i].image_url}" alt="Book Cover">
+				<p class="${bookList.novels[i].read}">Read: ${bookList.novels[i].read}</p>
+				<ul>
+					<li>Title: <strong>${bookList.novels[i].title}</strong></li>
+					<li>Author: <em>${bookList.novels[i].author}</em></li>
+				</ul>
+			</div>
+			`;
+		}
+
+		document.getElementById('output').innerHTML = generatedList;
+
+	</script>
+</body>
+</html>
