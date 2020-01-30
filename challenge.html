@@ -349,8 +349,10 @@
 
 		}
 
-
 		let generatedContent = '';
+		let allButtons = document.getElementsByClassName('infobutton');
+		let allCloseButtons = document.getElementsByClassName('closebutton');
+		let allCars = document.getElementsByClassName('car');
 
 		for (let i in carList.automobiles) {
 			generatedContent += `
@@ -359,6 +361,7 @@
 				<div class="infoFlex">
 					<p><strong>${carList.automobiles[i].manufacturer} ${carList.automobiles[i].name}</strong><br>
 					${carList.automobiles[i].production_year}, € ${carList.automobiles[i].price}.00</p>
+					
 					<p><button type="button" class="infobutton" id="button${carList.automobiles[i].unique_id}">Zoom Image</button>&nbsp;<button type="button" class="closebutton hidden" id="closebutton${carList.automobiles[i].unique_id}">Close</button></p>
 				</div>
 			</div>
@@ -367,9 +370,7 @@
 
 		document.getElementById('output').innerHTML = generatedContent;
 
-		let allButtons = document.getElementsByClassName('infobutton');
-		let allCloseButtons = document.getElementsByClassName('closebutton');
-		let allCars = document.getElementsByClassName('car');
+
 
 		for (let i in allButtons) {
 			if (allButtons[i].id !== undefined) {
